@@ -219,7 +219,7 @@ function CleanUp() {
 #################################################################################################### 
 # Script Action 1
 # https://github.com/jamfit/Encrypted-Script-Parameters
-#ENCRYPTEDSTRING="$4"
+ENCRYPTEDSTRING="$4"
 SALT=""
 PASSPHRASE=""
 DecryptString "$ENCRYPTEDSTRING" "$SALT" "$PASSPHRASE"
