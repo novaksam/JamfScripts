@@ -37,7 +37,7 @@ function DecryptString() {
 }
 
 function CheckWiFi() {
-	TEST=$(networksetup -getinfo "Wi-Fi" | grep -v IPv6 | grep IP\ address | cut -d' ' -f3 | grep 143\.236)
+	TEST=$(networksetup -getinfo "Wi-Fi" | grep -v IPv6 | grep IP\ address | cut -d' ' -f3 | grep 172\.16)
 	if [ $? -eq 0 ]; then
 		# Mac connected to corpnet via WiFi, which makes a wifi profile removal + update impossible, unless Ethernet is also connected
 		WIFI_CORP_CONNECTED=1 
@@ -51,7 +51,7 @@ function CheckWiFi() {
 
 function CheckEthernet() {
 	for E in $(networksetup -listallnetworkservices | grep -i Ethernet); do
-		TEST=$(networksetup -getinfo "$E" | grep -v IPv6 | grep IP\ address | cut -d' ' -f3 | grep 143\.236)
+		TEST=$(networksetup -getinfo "$E" | grep -v IPv6 | grep IP\ address | cut -d' ' -f3 | grep 172\.16)
 		if [ $? -eq 0 ]; then
 			# Mac connected to corpnet via Ethernet, which is what we need!
 			ETHERNET_CONNECTED=1
